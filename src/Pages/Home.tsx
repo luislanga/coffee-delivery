@@ -1,5 +1,9 @@
-export function Home() {
+import { Hero } from "../components/Hero"
+
+export function Home() {    
     return(
-      <div></div>
+      <div>
+        <Hero/>
+      </div>
     )
 }

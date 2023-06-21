@@ -4,6 +4,11 @@ export const GlobalStyle = createGlobalStyle`
 
 :root{
     font-size: 62.5%;
+
+    --purple: ${(props) => props.theme.purple};
+    --yellow: ${(props) => props.theme.yellow};
+    --dark-yellow: ${(props) => props.theme['yellow-dark']};
+    --gray:${(props) => props.theme['base-text']};
 }
 
 *{
