@@ -6,8 +6,14 @@ export function Home() {
   return (
     <Container>
       <Hero />
+      <h2>Nossos cafés</h2>
       <ItemShowcase>
-        <h2>Nossos cafés</h2>
+        <ShowcaseItem />
+        <ShowcaseItem />
+        <ShowcaseItem />
+        <ShowcaseItem />
+        <ShowcaseItem />
+        <ShowcaseItem />
         <ShowcaseItem />
         <ShowcaseItem />
         <ShowcaseItem />
