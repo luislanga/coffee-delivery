@@ -1,38 +1,60 @@
-import { AdderContainer, Container, ItemAdder, ItemInfo, ShopItem, Tag } from "./styles";
-import coffeeImg from "../../assets/Coffee.png";
-import { Plus, Minus, ShoppingCart } from "@phosphor-icons/react"
+import {
+  AdderContainer,
+  Container,
+  ItemAdder,
+  ItemInfo,
+  ShopItem,
+  Tag,
+} from "./styles";
+import { Plus, Minus, ShoppingCart } from "@phosphor-icons/react";
 
+interface ShowcaseItemProps {
+  itemName: string;
+  itemDescription: string;
+  itemPrice: number;
+  itemImg: string;
+  itemTags: string[]; 
+}
 
-export function ShowcaseItem() {
+export function ShowcaseItem({itemName, itemDescription, itemPrice, itemTags, itemImg}: ShowcaseItemProps) {
+
+  function priceToString(itemPrice: number){
+    const stringPrice = itemPrice.toFixed(2).toString().replace('.',',')
+    return stringPrice
+  }
+
+  const stringPrice = priceToString(itemPrice)
   return (
     <Container>
-      <img src={coffeeImg} alt="" />
+      <img src={itemImg} alt="" />
       <div className="tags">
-        {" "}
-        {/* fazer um styled component para essa div */}
-        <Tag>tradicional</Tag>
+        {itemTags.map(tag => {
+          return(
+            <Tag key={tag}>{tag}</Tag>
+          )
+        })}
       </div>
       <ItemInfo>
-        <h3>Expresso Tradicional</h3>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <h3>{itemName}</h3>
+        <p>{itemDescription}</p>
       </ItemInfo>
       <ShopItem>
         <div className="pricing">
           R$
-          <span className="price">9,90</span>
+          <span className="price">{stringPrice}</span>
         </div>
         <ItemAdder>
           <AdderContainer>
             <button className="minus">
-              <Minus weight="bold"/>
+              <Minus weight="bold" />
             </button>
             <span className="quantity">1</span>
             <button className="plus">
-              <Plus weight="bold"/>
+              <Plus weight="bold" />
             </button>
           </AdderContainer>
           <button className="addToCart">
-            <ShoppingCart weight="fill"/>
+            <ShoppingCart weight="fill" />
           </button>
         </ItemAdder>
       </ShopItem>
