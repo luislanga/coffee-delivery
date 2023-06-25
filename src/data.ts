@@ -9,7 +9,7 @@ export default {
             id: 0,
             name: 'Expresso Tradicional',
             description: 'O tradicional café feito com água quente e grãos moídos',
-            price: 9.90,
+            price: 10,
             tags: ['tradicional'],
             picture: tradEx
         },
@@ -17,7 +17,7 @@ export default {
             id: 1,
             name: 'Expresso Americano',
             description: 'Expresso diluído, menos intenso que o tradicional',
-            price: 9.90,
+            price: 10,
             tags: ['tradicional'],
             picture: americanEx
         },
@@ -25,7 +25,7 @@ export default {
             id: 2,
             name: 'Expresso Gelado',
             description: 'Bebida preparada com café expresso e cubos de gelo',
-            price: 9.90,
+            price: 10,
             tags: ['tradicional', 'gelado'],
             picture: iceEx
         },

@@ -7,31 +7,56 @@ import {
   Tag,
 } from "./styles";
 import { Plus, Minus, ShoppingCart } from "@phosphor-icons/react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
-interface ShowcaseItemProps {
+export interface ShowcaseItemProps {
   itemName: string;
   itemDescription: string;
   itemPrice: number;
   itemImg: string;
-  itemTags: string[]; 
+  itemTags: string[];
+  itemId: number;
 }
 
-export function ShowcaseItem({itemName, itemDescription, itemPrice, itemTags, itemImg}: ShowcaseItemProps) {
+export function ShowcaseItem({
+  itemName,
+  itemDescription,
+  itemPrice,
+  itemTags,
+  itemImg,
+  itemId,
+}: ShowcaseItemProps) {
+  
+  const { addToCart, cart } = useContext(CartContext)
 
-  function priceToString(itemPrice: number){
-    const stringPrice = itemPrice.toFixed(2).toString().replace('.',',')
-    return stringPrice
+  const [addQuantity, setAddQuantity] = useState(1);
+
+  function addMoreItems() {
+    if(addQuantity < 99){
+      setAddQuantity(prev => ++prev)
+    }
   }
 
-  const stringPrice = priceToString(itemPrice)
+  function removeItem() {
+    if(addQuantity > 1){
+      setAddQuantity(prev => --prev)
+    }
+  }
+
+  function priceToString(itemPrice: number) {
+    const stringPrice = itemPrice.toFixed(2).toString().replace(".", ",");
+    return stringPrice;
+  }
+
+  const stringPrice = priceToString(itemPrice);
+
   return (
     <Container>
       <img src={itemImg} alt="" />
       <div className="tags">
-        {itemTags.map(tag => {
-          return(
-            <Tag key={tag}>{tag}</Tag>
-          )
+        {itemTags.map((tag) => {
+          return <Tag key={tag}>{tag}</Tag>;
         })}
       </div>
       <ItemInfo>
@@ -45,15 +70,15 @@ export function ShowcaseItem({itemName, itemDescription, itemPrice, itemTags, it
         </div>
         <ItemAdder>
           <AdderContainer>
-            <button className="minus">
+            <button onClick={removeItem} className="minus">
               <Minus weight="bold" />
             </button>
-            <span className="quantity">1</span>
-            <button className="plus">
+            <span className="quantity">{addQuantity}</span>
+            <button onClick={addMoreItems} className="plus">
               <Plus weight="bold" />
             </button>
           </AdderContainer>
-          <button className="addToCart">
+          <button className="addToCart" onClick={() => addToCart(addQuantity, itemId, itemPrice)}>
             <ShoppingCart weight="fill" />
           </button>
         </ItemAdder>

@@ -5,34 +5,61 @@ import {
   Container,
   ItemInfo,
 } from "./styles";
-import image from "../../assets/Coffee.png";
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
+import { useState, useContext } from 'react'
+import { CartContext } from "../../contexts/CartContext";
 
-export function ItemCard() {
+interface ItemCardProps {
+  cardImage: string;
+  cardName: string;
+  cardPrice: number;
+  cardQuantity: number;
+  cardId: number;
+}
+
+export function ItemCard({cardImage, cardName, cardPrice, cardQuantity, cardId}: ItemCardProps) {
+
+  const { addToCart, removeFromCart, cartTotal, cart } = useContext(CartContext)
+  const [currentQuantity, setCurrentQuantity] = useState<number>(cardQuantity)
+
+  function addOne() {
+    if(currentQuantity < 99){
+      setCurrentQuantity(prev => ++prev)
+      addToCart(1, cardId, cardPrice)
+    }
+  }
+
+  function removeOne(){
+    if(currentQuantity > 1){
+      addToCart(-1, cardId, cardPrice)
+      setCurrentQuantity(prev => --prev)
+    }
+  }
+
   return (
     <Container>
       <ItemInfo>
-        <img src={image} alt="" />
+        <img src={cardImage} alt="" />
         <CardControls>
-          <span>Expresso trad wife</span>
+          <span>{cardName}</span>
           <CardButtons>
             <AdderContainer>
-              <button className="minus">
+              <button onClick={removeOne}>
                 <Minus weight="bold" />
               </button>
-              <span className="quantity">1</span>
-              <button className="plus">
+              <span className="quantity">{currentQuantity}</span>
+              <button onClick={addOne}>
                 <Plus weight="bold" />
               </button>
             </AdderContainer>
-            <button className="remove">
+            <button className="remove" onClick={() => removeFromCart(cardId)}>
                 <Trash />
                 <span>Remover</span>
             </button>
           </CardButtons>
         </CardControls>
       </ItemInfo>
-      <p>R$ 9,90</p>
+      <p>R$ {cardPrice.toFixed(2).toString().replace(".", ",")}</p>
     </Container>
   );
 }

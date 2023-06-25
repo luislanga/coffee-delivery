@@ -18,6 +18,7 @@ export function Home() {
               itemDescription={item.description}
               itemPrice={item.price}
               itemImg={item.picture}
+              itemId={item.id}
             />
           )
         })}

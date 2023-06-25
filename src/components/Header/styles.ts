@@ -29,7 +29,7 @@ export const HeaderLocation = styled.div`
   }
 `;
 
-export const HeaderCart = styled.a`
+export const HeaderCart = styled.div`
   display: flex;
   align-items: center;
 
