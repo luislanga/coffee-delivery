@@ -27,20 +27,19 @@ export function ShowcaseItem({
   itemImg,
   itemId,
 }: ShowcaseItemProps) {
-  
-  const { addToCart, cart } = useContext(CartContext)
+  const { addToCart, cart } = useContext(CartContext);
 
   const [addQuantity, setAddQuantity] = useState(1);
 
   function addMoreItems() {
-    if(addQuantity < 99){
-      setAddQuantity(prev => ++prev)
+    if (addQuantity < 99) {
+      setAddQuantity((prev) => ++prev);
     }
   }
 
   function removeItem() {
-    if(addQuantity > 1){
-      setAddQuantity(prev => --prev)
+    if (addQuantity > 1) {
+      setAddQuantity((prev) => --prev);
     }
   }
 
@@ -78,7 +77,10 @@ export function ShowcaseItem({
               <Plus weight="bold" />
             </button>
           </AdderContainer>
-          <button className="addToCart" onClick={() => addToCart(addQuantity, itemId, itemPrice)}>
+          <button
+            className="addToCart"
+            onClick={() => addToCart(addQuantity, itemId, itemPrice)}
+          >
             <ShoppingCart weight="fill" />
           </button>
         </ItemAdder>

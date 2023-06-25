@@ -71,15 +71,15 @@ export const ShopItem = styled.div`
 
 export const ItemAdder = styled.div`
   display: flex;
-  gap: .8rem;
+  gap: 0.8rem;
 
-  .addToCart{
+  .addToCart {
     background-color: ${(props) => props.theme["purple-dark"]};
     color: ${(props) => props.theme.white};
-    padding: .8rem;
+    padding: 0.8rem;
     font-size: 2rem;
     border: none;
-    border-radius:6px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,19 +87,19 @@ export const ItemAdder = styled.div`
     width: 3.8rem;
     cursor: pointer;
   }
-  `
+`;
 
 export const AdderContainer = styled.div`
   background-color: ${(props) => props.theme["base-button"]};
-  padding: .8rem;
+  padding: 0.8rem;
   display: flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border-radius: 6px;
   font-size: 1.6rem;
-  font-family: 'Roboto';
-  
-  button{
+  font-family: "Roboto";
+
+  button {
     background-color: transparent;
     border: none;
     color: ${(props) => props.theme.purple};
@@ -107,5 +107,4 @@ export const AdderContainer = styled.div`
     align-items: center;
     cursor: pointer;
   }
-
-`
+`;

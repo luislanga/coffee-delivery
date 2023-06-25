@@ -1,7 +1,7 @@
 import { Container, ItemShowcase } from "./styles";
 import { Hero } from "../../components/Hero";
 import { ShowcaseItem } from "../../components/ShowcaseItem";
-import itemsData from "../../data"
+import itemsData from "../../data";
 
 export function Home() {
   return (
@@ -9,8 +9,8 @@ export function Home() {
       <Hero />
       <h2>Nossos cafés</h2>
       <ItemShowcase>
-        {itemsData.items.map(item => {
-          return(
+        {itemsData.items.map((item) => {
+          return (
             <ShowcaseItem
               key={item.id}
               itemTags={item.tags}
@@ -20,7 +20,7 @@ export function Home() {
               itemImg={item.picture}
               itemId={item.id}
             />
-          )
+          );
         })}
       </ItemShowcase>
     </Container>

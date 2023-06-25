@@ -6,7 +6,7 @@ import {
   ItemInfo,
 } from "./styles";
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
-import { useState, useContext } from 'react'
+import { useState, useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 interface ItemCardProps {
@@ -17,22 +17,28 @@ interface ItemCardProps {
   cardId: number;
 }
 
-export function ItemCard({cardImage, cardName, cardPrice, cardQuantity, cardId}: ItemCardProps) {
-
-  const { addToCart, removeFromCart, cartTotal, cart } = useContext(CartContext)
-  const [currentQuantity, setCurrentQuantity] = useState<number>(cardQuantity)
+export function ItemCard({
+  cardImage,
+  cardName,
+  cardPrice,
+  cardQuantity,
+  cardId,
+}: ItemCardProps) {
+  const { addToCart, removeFromCart, cartTotal, cart } =
+    useContext(CartContext);
+  const [currentQuantity, setCurrentQuantity] = useState<number>(cardQuantity);
 
   function addOne() {
-    if(currentQuantity < 99){
-      setCurrentQuantity(prev => ++prev)
-      addToCart(1, cardId, cardPrice)
+    if (currentQuantity < 99) {
+      setCurrentQuantity((prev) => ++prev);
+      addToCart(1, cardId, cardPrice);
     }
   }
 
-  function removeOne(){
-    if(currentQuantity > 1){
-      addToCart(-1, cardId, cardPrice)
-      setCurrentQuantity(prev => --prev)
+  function removeOne() {
+    if (currentQuantity > 1) {
+      addToCart(-1, cardId, cardPrice);
+      setCurrentQuantity((prev) => --prev);
     }
   }
 
@@ -53,8 +59,8 @@ export function ItemCard({cardImage, cardName, cardPrice, cardQuantity, cardId}:
               </button>
             </AdderContainer>
             <button className="remove" onClick={() => removeFromCart(cardId)}>
-                <Trash />
-                <span>Remover</span>
+              <Trash />
+              <span>Remover</span>
             </button>
           </CardButtons>
         </CardControls>

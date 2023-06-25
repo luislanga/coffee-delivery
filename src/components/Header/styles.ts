@@ -39,7 +39,7 @@ export const HeaderCart = styled.div`
   color: ${(props) => props.theme["yellow-dark"]};
   position: relative;
 
-  span{
+  span {
     position: absolute;
     top: -8px;
     right: -8px;
@@ -53,15 +53,14 @@ export const HeaderCart = styled.div`
     align-items: center;
     justify-content: center;
 
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-weight: 700;
     font-size: 1.2rem;
   }
-
 `;
 
 export const HeaderNav = styled.nav`
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-`
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+`;

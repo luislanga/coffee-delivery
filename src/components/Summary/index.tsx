@@ -19,7 +19,7 @@ export function Summary() {
 
       <ItemContainer>
         <IconHolder variant="yellow">
-            <Clock weight="fill"/>
+          <Clock weight="fill" />
         </IconHolder>
         <div>
           <span>Previsão de entrega</span>
@@ -29,7 +29,7 @@ export function Summary() {
 
       <ItemContainer>
         <IconHolder variant="dark-yellow">
-            <CurrencyDollar />
+          <CurrencyDollar />
         </IconHolder>
         <div>
           <span>Pagamento na entrega</span>

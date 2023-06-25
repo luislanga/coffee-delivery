@@ -11,7 +11,7 @@ export const Container = styled.div`
   font-size: 16px;
   font-family: Roboto;
   line-height: 130%;
-  color: ${(props) => props.theme["base-text"]}
+  color: ${(props) => props.theme["base-text"]};
 `;
 
 export const ItemContainer = styled.div`

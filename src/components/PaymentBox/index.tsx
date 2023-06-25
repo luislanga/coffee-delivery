@@ -22,11 +22,11 @@ export function PaymentBox() {
       </BoxTitle>
 
       <PaymentOptions>
-        <PaymentMethodButton >
+        <PaymentMethodButton>
           <CreditCard />
           <span>Cartão de crédito</span>
         </PaymentMethodButton>
-        <PaymentMethodButton className='selected'>
+        <PaymentMethodButton className="selected">
           <Bank />
           <span>Cartão de débito</span>
         </PaymentMethodButton>

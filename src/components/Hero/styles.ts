@@ -33,8 +33,8 @@ export const Lettering = styled.div`
 export const BulletPointsContainer = styled.div`
   display: grid;
   grid-template-areas:
-  "a b"
-  "c d";
+    "a b"
+    "c d";
   max-width: 56.7rem;
   gap: 2rem 4rem;
 `;

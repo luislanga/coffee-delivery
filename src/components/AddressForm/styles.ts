@@ -28,34 +28,34 @@ export const FormTitle = styled.div`
 `;
 
 export const FormFields = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  input {
+    background-color: ${(props) => props.theme["base-input"]};
+    border: 1px solid ${(props) => props.theme["base-button"]};
+    border-radius: 4px;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    font-family: "Roboto";
+    line-height: 130%;
+  }
+
+  .shortInput {
+    width: 20rem;
+  }
+
+  .tinyInput {
+    width: 6rem;
+  }
+
+  .lined {
     display: flex;
-    flex-direction: column;
-    gap: 1.6rem;
+    gap: 1.2rem;
+  }
 
-    input{
-        background-color: ${(props) => props.theme["base-input"]};
-        border: 1px solid ${(props) => props.theme["base-button"]};
-        border-radius: 4px;
-        padding: 1.2rem;
-        font-size: 1.4rem;
-        font-family: 'Roboto';
-        line-height: 130%;
-    }
-
-    .shortInput{
-        width: 20rem;
-    }
-
-    .tinyInput{
-        width: 6rem;
-    }
-
-    .lined{
-        display: flex;
-        gap: 1.2rem;
-    }
-
-    .grownInput{
-        flex: 1;
-    }
-`
+  .grownInput {
+    flex: 1;
+  }
+`;

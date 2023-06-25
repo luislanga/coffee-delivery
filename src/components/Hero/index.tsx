@@ -1,4 +1,9 @@
-import { BulletPoint, BulletPointsContainer, Container, Lettering } from "./styles";
+import {
+  BulletPoint,
+  BulletPointsContainer,
+  Container,
+  Lettering,
+} from "./styles";
 import { IconHolder } from "../IconHolder";
 import { ShoppingCart, Timer, Coffee, Package } from "@phosphor-icons/react";
 import heroImage from "../../assets/Imagem.svg";

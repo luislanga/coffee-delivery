@@ -27,39 +27,39 @@ export const BoxTitle = styled.div`
   }
 `;
 
-export const PaymentMethodButton = styled.button.attrs(props => ({
-    className: props.className
+export const PaymentMethodButton = styled.button.attrs((props) => ({
+  className: props.className,
 }))`
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 1.6rem;
-    color: ${(props) => props.theme.purple};
-    background-color: ${(props) => props.theme["base-button"]};
-    font-size: 1.6rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    span{
-        color: ${(props) => props.theme["base-text"]};
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        font-family: 'Roboto';
-        line-height: 100%;
-        white-space: nowrap;
-    }
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.6rem;
+  color: ${(props) => props.theme.purple};
+  background-color: ${(props) => props.theme["base-button"]};
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  span {
+    color: ${(props) => props.theme["base-text"]};
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-family: "Roboto";
+    line-height: 100%;
+    white-space: nowrap;
+  }
 
-    &:hover{
-        background-color: ${(props) => props.theme["base-hover"]};
-    }
+  &:hover {
+    background-color: ${(props) => props.theme["base-hover"]};
+  }
 
-    &.selected{
-        background-color: ${(props) => props.theme["purple-light"]};
-        outline: 1px solid ${(props) => props.theme.purple}
-    }
-`
+  &.selected {
+    background-color: ${(props) => props.theme["purple-light"]};
+    outline: 1px solid ${(props) => props.theme.purple};
+  }
+`;
 
 export const PaymentOptions = styled.div`
-    display: flex;
-    gap: 1.2rem;
-`
+  display: flex;
+  gap: 1.2rem;
+`;
