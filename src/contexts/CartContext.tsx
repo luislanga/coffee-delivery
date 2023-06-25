@@ -10,7 +10,14 @@ interface CartContextProviderProps {
   children: React.ReactNode;
 }
 
-export const CartContext = createContext({} as any);
+interface CartContextType {
+  cart: CartItem[];
+  cartTotal: number;
+  addToCart: (amount: number, id: number, price: number) => void;
+  removeFromCart: (id: number) => void;
+}
+
+export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [toggle, setToggle] = useState<boolean>(false);

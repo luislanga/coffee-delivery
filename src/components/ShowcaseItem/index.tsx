@@ -27,7 +27,7 @@ export function ShowcaseItem({
   itemImg,
   itemId,
 }: ShowcaseItemProps) {
-  const { addToCart, cart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const [addQuantity, setAddQuantity] = useState(1);
 

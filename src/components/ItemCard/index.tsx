@@ -24,8 +24,7 @@ export function ItemCard({
   cardQuantity,
   cardId,
 }: ItemCardProps) {
-  const { addToCart, removeFromCart, cartTotal, cart } =
-    useContext(CartContext);
+  const { addToCart, removeFromCart } = useContext(CartContext);
   const [currentQuantity, setCurrentQuantity] = useState<number>(cardQuantity);
 
   function addOne() {
