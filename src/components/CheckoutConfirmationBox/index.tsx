@@ -3,9 +3,11 @@ import { ItemCard } from "../ItemCard";
 import { ConfirmButton, Container, PaymentInfo } from "./styles";
 import { useContext } from "react";
 import data from "../../data";
+import { PaymentMethodContext } from "../../contexts/PaymentInfoContext";
 
 export function CheckoutConfirmationBox() {
   const { cart, cartTotal } = useContext(CartContext);
+  const { currentPaymentInfo } = useContext(PaymentMethodContext);
 
   return (
     <Container>
@@ -33,7 +35,13 @@ export function CheckoutConfirmationBox() {
               R$ {(cartTotal + 3.5).toFixed(2).toString().replace(".", ",")}
             </p>
           </PaymentInfo>
-          <ConfirmButton>Confirmar pedido</ConfirmButton>
+          <ConfirmButton
+            disabled={!currentPaymentInfo}
+            form="address"
+            type="submit"
+          >
+            Confirmar pedido
+          </ConfirmButton>
         </>
       ) : (
         <p>Não há itens no carrinho</p>

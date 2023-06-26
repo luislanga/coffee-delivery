@@ -15,6 +15,7 @@ interface CartContextType {
   cartTotal: number;
   addToCart: (amount: number, id: number, price: number) => void;
   removeFromCart: (id: number) => void;
+  resetCart: () => void;
 }
 
 export const CartContext = createContext({} as CartContextType);
@@ -49,6 +50,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCart(filteredAuxCart);
   }
 
+  function resetCart() {
+    setCart([]);
+  }
+
   useEffect(() => {
     let cartValueSum = 0;
     cart.map((item) => {
@@ -59,7 +64,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   return (
     <CartContext.Provider
-      value={{ cart, cartTotal, addToCart, removeFromCart }}
+      value={{ cart, cartTotal, addToCart, removeFromCart, resetCart }}
     >
       {children}
     </CartContext.Provider>
