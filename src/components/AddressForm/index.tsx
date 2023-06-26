@@ -26,13 +26,11 @@ export function AddressForm() {
   const navigate = useNavigate();
   const { setAddress } = useContext(AddressContext);
   const { resetCart } = useContext(CartContext);
-  const { resetPaymentInfo } = useContext(PaymentMethodContext);
 
   function handleGetAddress(data: formData) {
     setAddress(data);
     navigate("/success");
     resetCart();
-    resetPaymentInfo();
   }
 
   return (
