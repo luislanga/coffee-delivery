@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect} from "react";
 
 export interface CartItem {
   amount: number;
@@ -21,8 +21,15 @@ interface CartContextType {
 export const CartContext = createContext({} as CartContextType);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    const localData = localStorage.getItem("@coffee-delivery:cart");
+    if (localData) {
+      return JSON.parse(localData);
+    }
+    return [];
+  });
+
   const [toggle, setToggle] = useState<boolean>(false);
-  const [cart, setCart] = useState<CartItem[]>([]);
   const [cartTotal, setCartTotal] = useState<number>(0);
 
   function toggleFn() {
@@ -60,6 +67,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       cartValueSum = cartValueSum + item.price * item.amount;
     });
     setCartTotal(cartValueSum);
+
+    localStorage.setItem("@coffee-delivery:cart", JSON.stringify(cart));
   }, [cart, toggle]);
 
   return (
