@@ -20,7 +20,7 @@ styled-components <br />
 
 Clone the repository <br />
 Navigate to the project directory <br />
-Install the dependencies: npm install <br />
+Install the dependencies: ```npm install``` <br />
 
 ## Usage
 Start the development server: npm start <br />
