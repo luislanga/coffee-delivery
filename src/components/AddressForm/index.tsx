@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AddressContext, formData } from "../../contexts/AddressContext";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
-import { PaymentMethodContext } from "../../contexts/PaymentInfoContext";
+
 
 const newAddressValidaitonSchema = zod.object({
   cep: zod.number().min(1, "campo obrigatório"),
